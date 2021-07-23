@@ -1,7 +1,7 @@
 //accessing Mogoose package
 const mongoose = require('mongoose');
 //Database connection
-mongoose.connect('mongodb://localhost:27017/LibraryApp');
+mongoose.connect('mongodb+srv://userone:userone@cluster0.vcc0q.mongodb.net/ProjectICTKWebsite?retryWrites=true&w=majority');
 
 //Schema definition
 const Schema = mongoose.Schema;
