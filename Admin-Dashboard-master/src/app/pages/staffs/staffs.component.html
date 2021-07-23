@@ -1,0 +1,44 @@
+
+<div class="lists row">
+    <div class="col-md-12 col-lg-12 col-xxxl-6">
+        <nb-card class="list-card">
+            <nb-card-header> <h5>Staffs</h5> 
+                <a (click)="addStaff()"class="plus">
+                    <ion-icon name="add-outline"></ion-icon>
+                </a>   
+                <a class="plus">
+                    <ion-icon name="checkmark"></ion-icon>
+                </a>
+                <a class="plus">
+                    <ion-icon name="close"></ion-icon>
+                </a>           
+            </nb-card-header>
+            <nb-card-body>
+                <nb-list>
+                    <nb-list-item>
+                        <h6 style ='width:16rem'>#</h6>
+                        <h6 style ='width:25rem'>Name</h6> 
+                        <h6 style ='width:5rem'>Designation</h6> 
+                    </nb-list-item>    
+                </nb-list>
+                <nb-list >
+                    <nb-list-item class="anchor" *ngFor="let staff of staffs; let i=index; " cdkDrag>
+                        <h7 style ='width:16rem'>{{i+1}}</h7>
+                        <h7 style ='width:30rem'>{{staff.name}}</h7>
+                        <h7 style ='width:5rem'>{{staff.designation}}</h7> 
+                        <div>
+                            <a >
+                                <ion-icon name="eye-outline "></ion-icon>
+                            </a>
+                            <a >
+                                <ion-icon name="create-outline"></ion-icon>
+                            </a>
+                            <a >
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </a>
+                        </div>
+                    </nb-list-item>
+                </nb-list>
+            </nb-card-body>
+        </nb-card>
+    </div>
