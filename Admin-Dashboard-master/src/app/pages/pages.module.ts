@@ -20,6 +20,8 @@ import { StaffFormComponent } from './staff-form/staff-form.component';
 import { UsersComponent } from './users/users.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { EditStaffsComponent } from './edit-staffs/edit-staffs.component';
+
 
 @NgModule({
   imports: [
@@ -41,6 +43,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     StaffFormComponent,
     UsersComponent,
     TestimonialsComponent,
+    EditStaffsComponent,
+    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -27,13 +27,13 @@
                         <h7  style ='width:20rem'>{{staff.name}}</h7>
                         <h7 class="text-center" style ='width:20rem'>{{staff.designation}}</h7> 
                         <div>
-                            <a >
+                            <a class="plus">
                                 <ion-icon name="eye-outline "></ion-icon>
                             </a>
-                            <a >
+                            <a (click)="editStaff(staff)" class="plus">
                                 <ion-icon name="create-outline"></ion-icon>
                             </a>
-                            <a >
+                            <a (click)="deleteStaff(staff)" class="plus">
                                 <ion-icon name="trash-outline"></ion-icon>
                             </a>
                         </div>

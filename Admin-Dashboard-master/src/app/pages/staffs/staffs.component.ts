@@ -9,21 +9,26 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder,  NbCheckboxComponent  } from '@nebular/theme';
 import { StaffService } from '../staff.service';
 
+import Swal from 'sweetalert2';
+
+
+
 @Component({
   selector: 'ngx-staffs',
   templateUrl: './staffs.component.html',
   styleUrls: ['./staffs.component.scss']
 })
 export class StaffsComponent implements OnInit {
+  
 
-  staffs={
+  staffs=[{
     name:"",
     designation:"",
-    email:"",
+    about:"",
     image:""
-  }
+  }]
 
-  constructor(private windowService:NbWindowService, private staffService:StaffService) { }
+  constructor(private windowService:NbWindowService, private staffService:StaffService, private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     this.staffService.getstaffs().subscribe((data)=>{
@@ -32,8 +37,69 @@ export class StaffsComponent implements OnInit {
   }
 
   addStaff() {
-    this.windowService.open(StaffFormComponent, { title: `Add Staff` });
+    this.router.navigate(['../addstaff'], { relativeTo: this.route });
   }
+
+  editStaff(staff : any) {
+    console.log('here iam');
+    localStorage.setItem("adminEditStaffID", staff._id.toString());
+    
+    this.router.navigate(['../editstaff'], { relativeTo: this.route });
+  }
+
+  deleteStaff(staff){
+    // console.log('inside delete')
+    // localStorage.setItem("adminDeleteStaffID", staff._id.toString());
+    // this.windowService.open(DeleteStaffComponent,{ title: `delete Staff` });
+    
+    Swal.fire({
+      title: "Are you sure?",
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "Yes, Delete it!",
+      denyButtonText: "No, cancel please!",
+      showDenyButton: true,
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      cancelButtonColor: '#d33',
+
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.staffService.deletestaff(staff)
+          .subscribe(
+            response => {
+              if (response) {
+                Swal.fire("Sucessfully Deleted", "success")
+                  .then(() => {
+                    let currentUrl = this.router.url;
+                    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+                    this.router.navigate([currentUrl]);
+                    });
+                  })
+              }
+              else {
+                Swal.fire("Network Error", "Please do after sometime ", "error")
+                  .then(() => {
+                    this.router.navigate(['../staffs']);
+                  })
+
+
+              }
+            }
+
+          )
+
+      }
+      else {
+        Swal.fire("Cancelled", "Your  Staff record is safe ", "error");
+      }
+
+    })
+
+  }
+
+  ////
+}
+  
   
 
-}
+

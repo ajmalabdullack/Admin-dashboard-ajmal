@@ -9,7 +9,7 @@ const Schema = mongoose.Schema;
 const StaffSchema = new Schema({
     name:String,
     designation:String,
-    email:String,
+    about:String,
     image:String
     
 });

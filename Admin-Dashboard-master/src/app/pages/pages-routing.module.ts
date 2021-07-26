@@ -6,6 +6,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { StaffsComponent } from './staffs/staffs.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { UsersComponent } from './users/users.component';
+import { StaffFormComponent } from './staff-form/staff-form.component';
+import { EditStaffsComponent } from './edit-staffs/edit-staffs.component';
 
 const routes: Routes = [{
   path: '',
@@ -14,6 +16,14 @@ const routes: Routes = [{
     {
       path: 'staffs',
       component: StaffsComponent,
+    },
+    {
+      path: 'addstaff',
+      component: StaffFormComponent,
+    },
+    {
+      path: 'editstaff',
+      component:EditStaffsComponent,
     },
     {
       path: 'courses',

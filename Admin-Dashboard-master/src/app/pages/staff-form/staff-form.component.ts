@@ -16,7 +16,7 @@ export class StaffFormComponent implements OnInit {
   staffDetails={
     name:"",
     designation:"",
-    email:"",
+    about:"",
     image:""
   }
 
