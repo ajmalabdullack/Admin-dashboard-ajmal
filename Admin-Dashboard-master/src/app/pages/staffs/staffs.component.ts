@@ -9,6 +9,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder,  NbCheckboxComponent  } from '@nebular/theme';
 import { StaffService } from '../staff.service';
 
+
 import Swal from 'sweetalert2';
 
 
@@ -19,14 +20,18 @@ import Swal from 'sweetalert2';
   styleUrls: ['./staffs.component.scss']
 })
 export class StaffsComponent implements OnInit {
+
+  index:any;
+  staffs:any
   
 
-  staffs=[{
-    name:"",
-    designation:"",
-    about:"",
-    image:""
-  }]
+  // staffs=[{
+  //   name:"",
+  //   designation:"",
+  //   about:"",
+  //   image:"",
+  //   index:0
+  // }]
 
   constructor(private windowService:NbWindowService, private staffService:StaffService, private route: ActivatedRoute, private router:Router) { }
 
@@ -34,6 +39,10 @@ export class StaffsComponent implements OnInit {
     this.staffService.getstaffs().subscribe((data)=>{
       this.staffs=JSON.parse(JSON.stringify(data));
     })
+  }
+
+  onDrop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.staffs, event.previousIndex, event.currentIndex);
   }
 
   addStaff() {
@@ -46,6 +55,24 @@ export class StaffsComponent implements OnInit {
     
     this.router.navigate(['../editstaff'], { relativeTo: this.route });
   }
+
+  saveCourseIndex(){
+    console.log(this.staffs);
+    for(let i= 0; i<this.staffs.length; i++){
+    this.staffs[i].index=i;  
+    this.staffService.updateStaffIndex(this.staffs[i])
+    .subscribe((staff)=>{
+      console.log(staff);
+    });
+  }
+ }
+
+ resetCourseIndex(){
+  let currentUrl = this.router.url;
+  this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate([currentUrl]);
+  });
+ }
 
   deleteStaff(staff){
     // console.log('inside delete')

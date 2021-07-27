@@ -10,7 +10,8 @@ const StaffSchema = new Schema({
     name:String,
     designation:String,
     about:String,
-    image:String
+    image:String,
+    index:Number
     
 });
 

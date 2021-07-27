@@ -24,6 +24,10 @@ export class StaffService {
     return this.http.get("http://localhost:4000/staffs");
   }
 
+  updateStaffIndex(staff:any){
+    return this.http.put("http://localhost:4000/Staffs/updateIndex/",staff);
+  };
+
 
   newStaff(image:any,item:any){
 
@@ -33,7 +37,7 @@ export class StaffService {
     formData.append('name', item.name); 
     formData.append('designation', item.designation); 
     formData.append('about', item.about); 
-    formData.append('image', item.image); 
+    formData.append('image', item.image);
      
 
     return this.http.post("http://localhost:4000/insert",formData)

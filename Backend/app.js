@@ -35,19 +35,21 @@ app.post('/insert',function(req,res){
        name:req.body.name,
        designation:req.body.designation,
        about:req.body.about,
-       image:req.body.image
+       image:req.body.image,
+       
    }       
    var staff = new StaffData(staff);
    staff.save();
    
    });
+    
 
 });
 
 //getting staff data
 app.get('/staffs',function(req,res){
     
-    StaffData.find()
+    StaffData.find().sort({ index: 1 })
                 .then(function(staffs){
                     res.send(staffs);
                 });
@@ -132,6 +134,24 @@ app.post('/staff/update',(req,res)=>{
    })
   });
   });
+
+  //udating index
+  app.put('/Staffs/updateIndex',(req,res)=>{
+    res.header("Access-Control-Allow-Origin","*")
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH,PUT,DELETE,OPTIONS');     
+    
+    id         = req.body._id;
+    title      = req.body.name;
+    index      = req.body.index;
+    console.log(`update of ${title} with value ${index}`);
+    StaffData.findByIdAndUpdate({"_id":id},
+                                {$set:{"index":index}})
+   .then(function(){
+       res.send();
+   })
+
+  });
+
 
 app.listen(4000,function(){
     console.log("app listening at port 4000")
