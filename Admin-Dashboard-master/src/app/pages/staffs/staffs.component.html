@@ -27,8 +27,8 @@
                         <h7  style ='width:20rem'>{{staff.name}}</h7>
                         <h7 class="text-center" style ='width:20rem'>{{staff.designation}}</h7> 
                         <div>
-                            <a class="plus">
-                                <ion-icon name="eye-outline "></ion-icon>
+                            <a (click)="viewStaff(staff)">
+                                <ion-icon name="eye-outline"></ion-icon>
                             </a>
                             <a (click)="editStaff(staff)" class="plus">
                                 <ion-icon name="create-outline"></ion-icon>

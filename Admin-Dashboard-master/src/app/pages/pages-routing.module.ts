@@ -8,6 +8,7 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { UsersComponent } from './users/users.component';
 import { StaffFormComponent } from './staff-form/staff-form.component';
 import { EditStaffsComponent } from './edit-staffs/edit-staffs.component';
+import { ViewStaffComponent } from './view-staff/view-staff.component';
 
 const routes: Routes = [{
   path: '',
@@ -24,6 +25,10 @@ const routes: Routes = [{
     {
       path: 'editstaff',
       component:EditStaffsComponent,
+    },
+    {
+      path:'viewstaff',
+      component:ViewStaffComponent,
     },
     {
       path: 'courses',

@@ -2,15 +2,15 @@
 <div style="width:60rem;">
     <div class=" col-lg-12 " >
         <h1 class="txt-center">Add Staff</h1>
-        <form action="" (ngSubmit)="addStaff()"   >
+        <form action="" #staffForm="ngForm" (ngSubmit)="addStaff()"   >
             <div class="form-group row">
             <label for="" class="label col-lg-2 col-form-label">Staff Name</label> <br>
-            <input class="form-control col-lg-10" type="text" name="name" id="name" [(ngModel)]="staffDetails.name"  placeholder="Staff Name"><br>
+            <input class="form-control col-lg-10" type="text" name="name" id="name" [(ngModel)]="staffDetails.name"  placeholder="Staff Name" required/><br>
             </div>
              
             <div class="form-group row">
             <label for="" class="label col-lg-2 col-form-label">Designation</label>
-            <select class="form-control col-lg-10 " [(ngModel)]="staffDetails.designation" name="designation" id="designation" aria-placeholder="Designation" > 
+            <select class="form-control col-lg-10 " [(ngModel)]="staffDetails.designation" name="designation" id="designation" aria-placeholder="Designation" required > 
                 <option selected>--Choose--</option>
                 <option value="CEO">CEO</option> 
                 <option value="Chairman">Chairman</option>
@@ -43,18 +43,18 @@
             <div class="form-group row">
             <label for="" class="label col-lg-2 col-form-label">About</label>
             <div class=" col-lg-10">
-            <textarea   rows="5" cols="94" class='width-100' id="about" name="about" [(ngModel)]="staffDetails.about" ></textarea>
+            <textarea nbInput   rows="5" cols="94" class='width-100' id="about" name="about" [(ngModel)]="staffDetails.about" required ></textarea>
             </div>
             </div>
             
             <div class="form-group row" >
             <label for="" class="label col-lg-2 col-form-label">Image</label>
-            <input class="form-control col-lg-10" type="file" name="image" id="image" (change)="selectImage($event)" [(ngModel)]="staffDetails.image"   placeholder="Image"><br>
+            <input class="form-control col-lg-10" type="file" name="image" id="image" (change)="selectImage($event)" [(ngModel)]="staffDetails.image" style="height: 2.6rem;"  placeholder="Image" required><br>
             </div>
 
              <br>
              <div class="d-flex justify-content-center">
-                <button class="btn btn-outline-primary text-center addstaff">Add</button>
+                <button type="submit" id="submit" [disabled]="staffForm.form.invalid" class="btn btn-outline-primary text-center addstaff">Add</button>
              </div>
             
         </form>

@@ -50,10 +50,17 @@ export class StaffsComponent implements OnInit {
   }
 
   editStaff(staff : any) {
-    console.log('here iam');
+    
     localStorage.setItem("adminEditStaffID", staff._id.toString());
     
     this.router.navigate(['../editstaff'], { relativeTo: this.route });
+  }
+
+  viewStaff(staff:any){
+    localStorage.setItem("adminEditStaffID", staff._id.toString());
+
+    this.router.navigate(['../viewstaff'], { relativeTo: this.route });
+
   }
 
   saveCourseIndex(){

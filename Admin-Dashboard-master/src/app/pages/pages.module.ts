@@ -21,6 +21,7 @@ import { UsersComponent } from './users/users.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { EditStaffsComponent } from './edit-staffs/edit-staffs.component';
+import { ViewStaffComponent } from './view-staff/view-staff.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { EditStaffsComponent } from './edit-staffs/edit-staffs.component';
     UsersComponent,
     TestimonialsComponent,
     EditStaffsComponent,
+    ViewStaffComponent,
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
