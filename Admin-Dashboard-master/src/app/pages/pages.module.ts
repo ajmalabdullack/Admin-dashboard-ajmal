@@ -22,6 +22,8 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { EditStaffsComponent } from './edit-staffs/edit-staffs.component';
 import { ViewStaffComponent } from './view-staff/view-staff.component';
+import { SearchStaffNamePipe } from './search-staff-name.pipe';
+import { SearchStaffDesignationPipe } from './search-staff-designation.pipe';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { ViewStaffComponent } from './view-staff/view-staff.component';
     TestimonialsComponent,
     EditStaffsComponent,
     ViewStaffComponent,
+    SearchStaffNamePipe,
+    SearchStaffDesignationPipe,
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

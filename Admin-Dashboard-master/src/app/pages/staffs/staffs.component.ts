@@ -22,7 +22,11 @@ import Swal from 'sweetalert2';
 export class StaffsComponent implements OnInit {
 
   index:any;
-  staffs:any
+  staffs:any;
+  srchName='';
+  srchDesignation='';
+  public searchStaffName: any = '';
+  public searchStaffDesignation : any ='';
   
 
   // staffs=[{
@@ -43,6 +47,11 @@ export class StaffsComponent implements OnInit {
 
   onDrop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.staffs, event.previousIndex, event.currentIndex);
+  }
+
+  resetSearch(){
+    this.srchName='';
+    this.srchDesignation='';
   }
 
   addStaff() {

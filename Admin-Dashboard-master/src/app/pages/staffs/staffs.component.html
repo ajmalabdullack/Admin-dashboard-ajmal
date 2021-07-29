@@ -14,6 +14,20 @@
                 </a>           
             </nb-card-header>
             <nb-card-body>
+
+                <nb-list>
+                    <nb-list-item>
+                        <h6 style ='width:16rem'><ion-icon name="search-outline"></ion-icon></h6>
+                        <span style ='width:36rem'><input type="text"  class="search-input" placeholder="Search by Name" [(ngModel)]="srchName" id="listSearch1"></span>
+                        <span style ='width:22rem'><input type="text"  class="search-input" placeholder="Search by Designation" [(ngModel)]="srchDesignation" id="listSearch2"></span>
+                        <div>
+                        <a (click)="resetSearch()">
+                            <ion-icon name="refresh-outline"></ion-icon>
+                        </a>   
+                        </div>
+                    </nb-list-item>    
+                </nb-list>
+
                 <nb-list>
                     <nb-list-item>
                         <h6 style ='width:16rem'>#</h6>
@@ -22,7 +36,7 @@
                     </nb-list-item>    
                 </nb-list  >
                 <nb-list cdkDropList (cdkDropListDropped)="onDrop($event)" >
-                    <nb-list-item class="anchor" *ngFor="let staff of staffs; let i=index; " cdkDrag>
+                    <nb-list-item class="anchor" *ngFor="let staff of staffs | searchStaffName: srchName | searchStaffDesignation: srchDesignation ; let i=index; " cdkDrag>
                         <h7 style ='width:16rem'>{{i+1}}</h7>
                         <h7  style ='width:20rem'>{{staff.name}}</h7>
                         <h7 class="text-center" style ='width:20rem'>{{staff.designation}}</h7> 

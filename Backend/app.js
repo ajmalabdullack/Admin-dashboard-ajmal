@@ -143,7 +143,7 @@ app.post('/staff/update',(req,res)=>{
     id         = req.body._id;
     title      = req.body.name;
     index      = req.body.index;
-    console.log(`update of ${title} with value ${index}`);
+    console.log(`update of ${name} with value ${index}`);
     StaffData.findByIdAndUpdate({"_id":id},
                                 {$set:{"index":index}})
    .then(function(){
