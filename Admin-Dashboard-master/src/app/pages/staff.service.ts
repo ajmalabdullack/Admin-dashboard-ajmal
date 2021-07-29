@@ -41,7 +41,7 @@ export class StaffService {
      
 
     return this.http.post("http://localhost:4000/insert",formData)
-    .subscribe(data =>{console.log(data)})
+    // .subscribe(data =>{console.log(data)})
   }
 
   deletestaff(staff:any){

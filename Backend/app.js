@@ -39,7 +39,9 @@ app.post('/insert',function(req,res){
        
    }       
    var staff = new StaffData(staff);
-   staff.save();
+   staff.save().then(function (data) {
+    res.send(true)
+    })
    
    });
     
