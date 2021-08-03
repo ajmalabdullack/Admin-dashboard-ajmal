@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const StaffData = require('./src/model/Staffdata');
+const EventData = require('./src/model/Eventdata');
 const cors = require('cors');
 const multer = require('multer');
 
@@ -40,6 +41,54 @@ app.post('/insert',function(req,res){
    }       
    var staff = new StaffData(staff);
    staff.save().then(function (data) {
+    res.send(true)
+    })
+   
+   });
+    
+
+});
+
+
+//inserting Event details
+app.post('/event-insert',function(req,res){
+
+    const destn = path.join(__dirname, '../',  'Admin-Dashboard-master', 'src', 'assets', 'images');
+    console.log(destn);
+    var storage =   multer.diskStorage({
+        destination: function (req, file, callback) {
+          callback(null, destn);
+        },
+        filename: function(req, file, cb) {
+          cb(null, file.originalname);
+      }
+      });
+    var upload = multer({ storage : storage}).single('file');
+
+    upload(req,res,function(err) {
+        if(err) {
+            console.log("Error uploading file.");
+        }
+   
+    console.log(req.body);
+   
+    var event = {       
+       name:req.body.name,
+       shortdetails:req.body.shortdetails,
+       moredetails:req.body.moredetails,
+       boxdetails:req.body.boxdetails,
+       coordinatorsdetail:req.body.coordinatorsdetail,
+       registrationlink:req.body.registrationlink,
+       brouchurelink:req.body.brouchurelink,
+       programschedule:req.body.programschedule,
+       speakerslist:req.body.speakerslist,
+       button:req.body.button,
+       date:req.body.date,
+       image:req.body.image,
+       
+   }       
+   var event = new EventData(event);
+   event.save().then(function (data) {
     res.send(true)
     })
    

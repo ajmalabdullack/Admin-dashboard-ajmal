@@ -9,6 +9,8 @@ import { UsersComponent } from './users/users.component';
 import { StaffFormComponent } from './staff-form/staff-form.component';
 import { EditStaffsComponent } from './edit-staffs/edit-staffs.component';
 import { ViewStaffComponent } from './view-staff/view-staff.component';
+import { EventsComponent } from './events/events.component';
+import { EventsFormComponent } from './events-form/events-form.component';
 
 const routes: Routes = [{
   path: '',
@@ -41,6 +43,14 @@ const routes: Routes = [{
     {
       path: 'users',
       component: UsersComponent,
+    },
+    {
+      path:'events',
+      component:EventsComponent
+    },
+    {
+      path:'addevents',
+      component:EventsFormComponent
     },
   ],
 }];

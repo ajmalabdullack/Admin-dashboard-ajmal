@@ -25,4 +25,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/users',
     home: true,
   },
+  {
+    title: 'Events',
+    icon: 'book-outline',
+    link: '/pages/events',
+    home: true,
+  },
 ]

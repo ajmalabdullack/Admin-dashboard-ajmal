@@ -1,5 +1,7 @@
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NbMenuModule } from '@nebular/theme';
+import { CKEditorModule } from 'ng2-ckeditor';
+
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -24,6 +26,9 @@ import { EditStaffsComponent } from './edit-staffs/edit-staffs.component';
 import { ViewStaffComponent } from './view-staff/view-staff.component';
 import { SearchStaffNamePipe } from './search-staff-name.pipe';
 import { SearchStaffDesignationPipe } from './search-staff-designation.pipe';
+import { EventsComponent } from './events/events.component';
+import { EventsFormComponent } from './events-form/events-form.component';
+
 
 
 @NgModule({
@@ -33,6 +38,7 @@ import { SearchStaffDesignationPipe } from './search-staff-designation.pipe';
     NbMenuModule,
     NbListModule,
     NbCardModule,
+    CKEditorModule,
     DragDropModule,
     NbWindowModule,
     FormsModule
@@ -50,6 +56,8 @@ import { SearchStaffDesignationPipe } from './search-staff-designation.pipe';
     ViewStaffComponent,
     SearchStaffNamePipe,
     SearchStaffDesignationPipe,
+    EventsComponent,
+    EventsFormComponent,
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
