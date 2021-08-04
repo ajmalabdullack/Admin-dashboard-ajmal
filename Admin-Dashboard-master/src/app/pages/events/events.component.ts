@@ -28,6 +28,13 @@ export class EventsComponent implements OnInit {
     this.router.navigate(['../addevents'], { relativeTo: this.route });
   }
 
+  viewEvent(event:any){
+    localStorage.setItem("adminEditEventID", event._id.toString());
+
+    this.router.navigate(['../viewevent'], { relativeTo: this.route });
+
+  }
+
   editEvent(event : any) {
     
     localStorage.setItem("adminEditEventID", event._id.toString());

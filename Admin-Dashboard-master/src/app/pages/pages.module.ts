@@ -29,6 +29,7 @@ import { SearchStaffDesignationPipe } from './search-staff-designation.pipe';
 import { EventsComponent } from './events/events.component';
 import { EventsFormComponent } from './events-form/events-form.component';
 import { EditEventsComponent } from './edit-events/edit-events.component';
+import { ViewEventComponent } from './view-event/view-event.component';
 
 
 
@@ -60,6 +61,7 @@ import { EditEventsComponent } from './edit-events/edit-events.component';
     EventsComponent,
     EventsFormComponent,
     EditEventsComponent,
+    ViewEventComponent,
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
