@@ -72,7 +72,7 @@ export class StaffsComponent implements OnInit {
 
   }
 
-  saveCourseIndex(){
+  saveStaffIndex(){
     console.log(this.staffs);
     for(let i= 0; i<this.staffs.length; i++){
     this.staffs[i].index=i;  
@@ -83,7 +83,7 @@ export class StaffsComponent implements OnInit {
   }
  }
 
- resetCourseIndex(){
+ resetStaffIndex(){
   let currentUrl = this.router.url;
   this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate([currentUrl]);

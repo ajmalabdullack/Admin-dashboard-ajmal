@@ -11,6 +11,7 @@ import { EditStaffsComponent } from './edit-staffs/edit-staffs.component';
 import { ViewStaffComponent } from './view-staff/view-staff.component';
 import { EventsComponent } from './events/events.component';
 import { EventsFormComponent } from './events-form/events-form.component';
+import { EditEventsComponent } from './edit-events/edit-events.component';
 
 const routes: Routes = [{
   path: '',
@@ -52,6 +53,10 @@ const routes: Routes = [{
       path:'addevents',
       component:EventsFormComponent
     },
+    {
+      path:'editevent',
+      component:EditEventsComponent
+    }
   ],
 }];
 

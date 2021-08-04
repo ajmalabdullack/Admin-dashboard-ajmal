@@ -18,7 +18,8 @@ const EventSchema = new Schema({
     speakerslist:String,
     button:String,
     date:String,
-    image:String
+    image:String,
+    index:Number
     
 });
 
